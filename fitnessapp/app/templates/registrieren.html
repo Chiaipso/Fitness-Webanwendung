@@ -1,0 +1,43 @@
+<!---#Eigenentwicklung in Anlehnung an Microblog-->
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Registrieren</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.Benutzername.label }}<br>
+            {{ form.Benutzername(size=32) }}<br>
+            {% for error in form.Benutzername.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.Email.label }}<br>
+            {{ form.Email(size=64) }}<br>
+            {% for error in form.Email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.Passwort.label }}<br>
+            {{ form.Passwort(size=32) }}<br>
+            {% for error in form.Passwort.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.Passwort2.label }}<br>
+            {{ form.Passwort2(size=32) }}<br>
+
+            {% for error in form.Passwort2.errors %}
+
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.Einreichen() }}</p>
+    </form>
+{% endblock %}
+
+

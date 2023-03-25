@@ -1,0 +1,29 @@
+<!---#Eigenentwicklung in Anlehnung an Microblog-->
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>Anmelden</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.benutzer.label }}<br>
+            {{ form.benutzer(size=32) }}
+            {% for error in form.benutzer.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.passwort.label }}<br>
+            {{ form.passwort(size=32) }}
+            {% for error in frm.psswrd.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.erinnere() }} {{ form.ernnere.label }}</p>
+        <p>{{ form.einreichen() }}</p>
+    </form>
+    <p>Möchten Sie sich für die Fitnessapp registrieren? <a href="{{ url_for('registrieren') }}">Klicken Sie hier, um sich zu registrieren!</a></p>
+{% endblock %}
+
+

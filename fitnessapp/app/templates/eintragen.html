@@ -1,0 +1,35 @@
+<!---#Eigenentwicklung in Anlehnung an Microblog-->
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+        <h1>Neue Übung hinzufügen.</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.Maschinenname.label }}<br>
+            {{ form.Maschinenname(size=140) }}
+            {% for error in form.Maschinenname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.Einstellung1.label }}<br>
+            {{ form.Einstellung1(size=140) }}
+            {% for error in form.Einstellung1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.Einstellung2.label }}<br>
+            {{ form.Einstellung2(size=140) }}
+            {% for error in form.Einstellung2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>{{ form.Einreichen() }}</p>
+         </form>
+        {% endblock %}

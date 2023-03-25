@@ -1,0 +1,32 @@
+# Eigenentwicklung in Anlehnung an Containerleitfaden von Doron William
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_fitnessapp
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Uncharted43v3r
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - /opt/fitnessapp/mysql:/var/lib/mysql
+    network_mode: host
+
+# Eigenentwicklung in Anlehnung an Containerleitfaden von Doron William
+  adminer:
+    image: adminer
+    container_name: adminer
+    network_mode: host
+    restart: unless-stopped
+
+# Eigenentwicklung in Anlehnung an Containerleitfaden von Doron William
+  flask:
+    build: .
+    container_name: flask
+    restart: always
+    network_mode: host
+    volumes:
+      - ./fitnessapp:/app
+    depends_on:
+      - mysql
+
+

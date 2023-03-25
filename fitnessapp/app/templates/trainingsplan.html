@@ -1,0 +1,11 @@
+<!---#Eigenentwicklung in Anlehnung an Microblog-->
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <p>Maschine oder Übung</p>
+    {% for uebung in uebung %}
+        {% include '_trainingsplan.html' %}
+    {% endfor %}
+{% endblock %}
+
